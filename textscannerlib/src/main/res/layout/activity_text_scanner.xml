@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TextScanner">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <SurfaceView
+            android:id="@+id/surfaceViewCariKata"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:foregroundGravity="center"
+            android:scaleType="centerInside"
+            android:src="@drawable/camera" />
+
+        <ImageView
+            android:id="@+id/ButtonTerjemahkan"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="bottom|center"
+            android:layout_margin="50dp"
+            android:scaleType="fitEnd"
+            android:src="@android:drawable/ic_menu_camera" />
+
+        <TextView
+            android:id="@+id/textFound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_margin="50dp"
+            android:gravity="center"
+            android:maxHeight="200dp"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+    </FrameLayout>
+
+
+
+</LinearLayout>
