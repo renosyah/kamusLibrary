@@ -3,6 +3,7 @@ package com.example.renosyahputra.librarykamus
 import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.example.renosyahputra.localdatakamuslib.model.KosakKataModel
@@ -49,8 +50,7 @@ class MainActivity : AppCompatActivity(),
                         .setContext(context)
                         .setFindBy(findBy.text.toString())
                         .setKosakKataDicari(KosakKataModel(TextDicari.text.toString(), TextDicari.text.toString()))
-                        .setOnQueryKataListener(this)
-                        .cari()
+                        .setOnQueryKataListener(this).cari()
             }
 
             findBy -> {
@@ -73,9 +73,8 @@ class MainActivity : AppCompatActivity(),
         var hasil_text = ""
         for (data in kosakKataModels) {
             hasil_text += "Bahasa Indonesia : ${data.BahasaIndonesia}\n"
-            hasil_text += "keterangan : ${data.keteranganBahasaIndonesia}\n\n"
             hasil_text += "Bahasa Inggris : ${data.BahasaInggris}\n"
-            hasil_text += "Description : ${data.keteranganBahasaInggris}\n\n"
+            hasil_text += "Bahasa Mandarin : ${data.BahasaMandarin}\n"
         }
         hasil.text = hasil_text
     }
@@ -104,12 +103,13 @@ class MainActivity : AppCompatActivity(),
 
     private fun setDefaultResources(){
         val listKosakKataModel = ListKosakKataModel()
-        listKosakKataModel.kosakKataModels.add(KosakKataModel("me","which mean person it self","saya","artinya adalah orang pertama tunggal"))
-        listKosakKataModel.kosakKataModels.add(KosakKataModel("car","some 4 wheele vehicle","mobil","kendaraan roda dua"))
-        listKosakKataModel.kosakKataModels.add(KosakKataModel("box","kardus"))
-        listKosakKataModel.kosakKataModels.add(KosakKataModel("duck","bebek"))
-        listKosakKataModel.kosakKataModels.add(KosakKataModel("cat","kucing"))
-        listKosakKataModel.kosakKataModels.add(KosakKataModel("dog","anjing"))
+        listKosakKataModel.kosakKataModels.add(KosakKataModel("me","saya", "我"))
+        listKosakKataModel.kosakKataModels.add(KosakKataModel("car","mobil","汽车"))
+        listKosakKataModel.kosakKataModels.add(KosakKataModel("box","kardus","框"))
+        listKosakKataModel.kosakKataModels.add(KosakKataModel("duck","bebek","鸭"))
+        listKosakKataModel.kosakKataModels.add(KosakKataModel("cat","kucing","猫"))
+        listKosakKataModel.kosakKataModels.add(KosakKataModel("dog","anjing","狗"))
+
 
         TambahKata.newInstance()
                 .setContext(context)

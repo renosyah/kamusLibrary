@@ -72,9 +72,9 @@ public class QueryKata {
 
         for (KosakKataModel kosakKataModelDariStorage : listKosakKataModel.kosakKataModels) {
             if (!isInList(kosakKataModelsKetemu,kosakKataModelDariStorage.BahasaIndonesia) && findBy.equals(Indonesia) && isSimmilar(kosakKataModelDariStorage.BahasaIndonesia,kosakKataDicari.BahasaIndonesia)) {
-                kosakKataModelsKetemu.add(new KosakKataModel(kosakKataModelDariStorage.BahasaInggris,kosakKataModelDariStorage.keteranganBahasaInggris, kosakKataModelDariStorage.BahasaIndonesia,kosakKataModelDariStorage.keteranganBahasaIndonesia));
+                kosakKataModelsKetemu.add(new KosakKataModel(kosakKataModelDariStorage.BahasaInggris,kosakKataModelDariStorage.keteranganBahasaInggris, kosakKataModelDariStorage.BahasaIndonesia,kosakKataModelDariStorage.keteranganBahasaIndonesia,kosakKataModelDariStorage.BahasaMandarin,kosakKataModelDariStorage.KeteranganBahasaMandarin));
             } else if (!isInList(kosakKataModelsKetemu,kosakKataModelDariStorage.BahasaInggris) && findBy.equals(Inggris) && isSimmilar(kosakKataModelDariStorage.BahasaInggris,kosakKataDicari.BahasaInggris)) {
-                kosakKataModelsKetemu.add(new KosakKataModel(kosakKataModelDariStorage.BahasaInggris,kosakKataModelDariStorage.keteranganBahasaInggris, kosakKataModelDariStorage.BahasaIndonesia,kosakKataModelDariStorage.keteranganBahasaIndonesia));
+                kosakKataModelsKetemu.add(new KosakKataModel(kosakKataModelDariStorage.BahasaInggris,kosakKataModelDariStorage.keteranganBahasaInggris, kosakKataModelDariStorage.BahasaIndonesia,kosakKataModelDariStorage.keteranganBahasaIndonesia,kosakKataModelDariStorage.BahasaMandarin,kosakKataModelDariStorage.KeteranganBahasaMandarin));
             }
         }
 

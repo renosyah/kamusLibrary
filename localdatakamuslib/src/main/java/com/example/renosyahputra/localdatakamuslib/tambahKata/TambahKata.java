@@ -46,11 +46,8 @@ public class TambahKata {
 
         errors.clear();
         SerializableSave serializableSave = new SerializableSave(this.context,KosakKataFileName);
-        if (serializableSave.load() == null){
-            serializableSave.save(new ListKosakKataModel());
-        }
 
-        ListKosakKataModel listKosakKataModel = serializableSave.load();
+        ListKosakKataModel listKosakKataModel = new ListKosakKataModel();
         listKosakKataModel.kosakKataModels.addAll(listKosakKataModelDitambah.kosakKataModels);
 
         if (serializableSave.save(listKosakKataModel)){
