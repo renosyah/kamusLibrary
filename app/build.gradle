@@ -32,7 +32,7 @@ dependencies {
 
     //implementation 'com.github.renosyah:LibraryKosakKataHandle:1.0.0'
     //implementation 'com.github.renosyah:ScanKataHandle:1.0.0'
-    
-    implementation project(path : ':localdatakamuslib')
-    implementation project(path : ':textscannerlib')
+
+    implementation project(path: ':localdatakamuslib')
+    implementation project(path: ':textscannerlib')
 }

@@ -1,16 +1,34 @@
 package com.example.renosyahputra.localdatakamuslib.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class KosakKataModel implements Serializable {
 
+    @SerializedName("bahasa_inggris")
+    @Expose
     public String BahasaInggris = "";
+
+    @SerializedName("keterangan_bahasa_inggris")
+    @Expose
     public String keteranganBahasaInggris = "";
 
+    @SerializedName("bahasa_indonesia")
+    @Expose
     public String BahasaIndonesia = "";
+
+    @SerializedName("keterangan_bahasa_indonesia")
+    @Expose
     public String keteranganBahasaIndonesia = "";
 
+    @SerializedName("bahasa_mandarin")
+    @Expose
     public String BahasaMandarin = "";
+
+    @SerializedName("keterangan_bahasa_mandarin")
+    @Expose
     public String KeteranganBahasaMandarin = "";
 
     public KosakKataModel() {

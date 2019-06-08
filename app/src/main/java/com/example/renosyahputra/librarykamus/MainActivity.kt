@@ -18,7 +18,8 @@ class MainActivity : AppCompatActivity(),
         View.OnClickListener,
         QueryKata.OnQueryKataListener,
         TambahKata.OnTambahKataListener,
-        TextScannerInit.OnTextScannerInitListener {
+        TextScannerInit.OnTextScannerInitListener,
+        TambahKata.OnRequestStoragePermissionListener {
 
 
 
@@ -115,10 +116,19 @@ class MainActivity : AppCompatActivity(),
                 .setContext(context)
                 .setListKosakKataModel(listKosakKataModel)
                 .setOnTambahKataListener(this)
-                .tambah()
+                .setOnRequestStoragePermissionListener(this)
+                .tambahKeFile()
     }
 
     override fun onBerhasilTambahKata(success: Boolean) {
+
+    }
+
+    override fun onPermissionResult(status: Boolean) {
+
+    }
+
+    override fun onFinishRequestPermission() {
 
     }
 }

@@ -3,9 +3,11 @@ package com.example.renosyahputra.localdatakamuslib.queryKata;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
+import com.example.renosyahputra.localdatakamuslib.localStorage.FileSave;
 import com.example.renosyahputra.localdatakamuslib.localStorage.SerializableSave;
 import com.example.renosyahputra.localdatakamuslib.model.KosakKataModel;
 import com.example.renosyahputra.localdatakamuslib.model.ListKosakKataModel;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -61,14 +63,30 @@ public class QueryKata {
         }
 
         errors.clear();
+        FileSave fileSave = new FileSave(this.context);
         SerializableSave serializableSave = new SerializableSave(this.context,KosakKataFileName);
-        if (serializableSave.load() == null){
+
+        if (serializableSave.load() == null && fileSave.read().equals("")){
             errors.add(error_not_found);
             listener.onErrorLogs(errors);
             return;
         }
+
+
+
         ArrayList<KosakKataModel> kosakKataModelsKetemu = new ArrayList<>();
-        ListKosakKataModel listKosakKataModel = serializableSave.load();
+        ListKosakKataModel listKosakKataModel = new ListKosakKataModel();
+
+
+        if (serializableSave.load() != null){
+
+            listKosakKataModel = serializableSave.load();
+
+        } else if (!fileSave.read().equals("")){
+
+            listKosakKataModel = new Gson().fromJson(fileSave.read(),ListKosakKataModel.class);
+
+        }
 
         for (KosakKataModel kosakKataModelDariStorage : listKosakKataModel.kosakKataModels) {
             if (!isInList(kosakKataModelsKetemu,kosakKataModelDariStorage.BahasaIndonesia) && findBy.equals(Indonesia) && isSimmilar(kosakKataModelDariStorage.BahasaIndonesia,kosakKataDicari.BahasaIndonesia)) {
